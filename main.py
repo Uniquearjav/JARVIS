@@ -21,7 +21,7 @@ import pyttsx3
 
 import wikipedia  #for wikipedia search 
 import smtplib #for sending mails
-
+import dateime # for telling date and time
 
 
 # initialisation
@@ -93,6 +93,11 @@ if __name__ == '__main__':
                 sendEmail(to,content)
                 speak(content)
                 speak("email is sent")
+
+        elif 'time' in query:
+            current_time = datetime.datetime.now().strftime("%H:%M:%S")
+            engine.say(f"The current time is {current_time}")
+            engine.runAndWait()
                 
          elif 'go offlie' in query:
             speak("going offline sir")
